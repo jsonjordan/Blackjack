@@ -4,21 +4,21 @@ require "minitest/reporters"
 require 'pry'
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-# class TestCard < Minitest::Test
-#   def test_number_card_value
-#     2.upto(10) do |x|
-#       card = Card.new(x, :S)
-#       assert_equal card.value, x
-#     end
-#   end
-#
-#   def test_face_card_value
-#     [:K, :Q, :J].each do |rank|
-#       card = Card.new(rank, :H)
-#       assert_equal card.value, 10
-#     end
-#   end
-# end
+class TestCard < Minitest::Test
+  def test_number_card_value
+    2.upto(10) do |x|
+      card = Card.new(x, :S)
+      assert_equal card.value, x
+    end
+  end
+
+  def test_face_card_value
+    [:K, :Q, :J].each do |rank|
+      card = Card.new(rank, :H)
+      assert_equal card.value, 10
+    end
+  end
+end
 
 class TestDeck < Minitest::Test
   def test_counting_cards

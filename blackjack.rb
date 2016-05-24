@@ -86,4 +86,18 @@ class Hand
   def blackjack?
     value == 21
   end
+
+  def to_s
+    array_of_card_elements = []
+    card_string_array = []
+    current_hand.each do |card|
+      card_elements = []
+      card_elements.push card.rank, card.suit
+      array_of_card_elements.push(card_elements)
+    end
+    array_of_card_elements.each do |pair|
+      card_string_array.push pair.join
+    end
+    card_string_array.join ", "
+  end
 end
