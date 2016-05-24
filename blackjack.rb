@@ -53,13 +53,6 @@ class Hand
     cards.each do |card|
       @current_hand.push card
     end
-    # if (card_2.nil?) && (card_3.nil?)
-    #   @current_hand.push(card_1)
-    # elsif (card_3.nil?) && !(card_2.nil?)
-    #   @current_hand.push(card_1).push(card_2)
-    # else
-    #   @current_hand.push(card_1).push(card_2).push(card_3)
-    # end
   end
 
   def value
