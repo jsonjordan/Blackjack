@@ -65,23 +65,23 @@ class TestHand < Minitest::Test
     hand.add(Card.new(5, :S))
     assert_equal hand.value, 16
   end
-#
-#   def test_busting
-#     hand = Hand.new
-#     hand.add(Card.new(6, :H), Card.new(:K, :S), Card.new(9, :H))
-#     assert hand.busted?
-#   end
-#
-#   def test_blackjack
-#     hand = Hand.new
-#     hand.add(Card.new(:A, :H), Card.new(:K, :S))
-#     assert hand.blackjack?
-#   end
-#
-#   def test_hand_as_string
-#     hand = Hand.new
-#     hand.add(Card.new(:A, :H), Card.new(:K, :S))
-#     hand.add(Card.new(5, :S))
-#     assert_equal hand.to_s, 'AH, KS, 5S'
-#   end
+
+  def test_busting
+    hand = Hand.new
+    hand.add(Card.new(6, :H), Card.new(:K, :S), Card.new(9, :H))
+    assert hand.busted?
+  end
+
+  def test_blackjack
+    hand = Hand.new
+    hand.add(Card.new(:A, :H), Card.new(:K, :S))
+    assert hand.blackjack?
+  end
+
+  def test_hand_as_string
+    hand = Hand.new
+    hand.add(Card.new(:A, :H), Card.new(:K, :S))
+    hand.add(Card.new(5, :S))
+    assert_equal hand.to_s, 'AH, KS, 5S'
+  end
 end

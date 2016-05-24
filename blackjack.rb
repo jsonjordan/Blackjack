@@ -49,11 +49,13 @@ class Hand
     @current_hand = []
   end
 
-  def add card_1, card_2 = nil
-    if card_2 == nil
+  def add card_1, card_2 = nil, card_3 = nil
+    if (card_2.nil?) && (card_3.nil?)
       @current_hand.push(card_1)
-    else
+    elsif (card_3.nil?) && !(card_2.nil?)
       @current_hand.push(card_1).push(card_2)
+    else
+      @current_hand.push(card_1).push(card_2).push(card_3)
     end
   end
 
@@ -75,5 +77,13 @@ class Hand
       end
       return total
     end
+  end
+
+  def busted?
+    value > 21
+  end
+
+  def blackjack?
+    value == 21
   end
 end
