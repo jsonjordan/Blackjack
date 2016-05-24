@@ -19,11 +19,11 @@ end
 
 class Deck
 
-  attr_reader :cards, :drawn_cards
+  attr_reader :cards, :drawn
 
   def initialize
     @cards = (1..52).to_a
-    @drawn_cards = []
+    @drawn = []
   end
 
   def count
@@ -32,15 +32,11 @@ class Deck
 
   def draw
     new_card = @cards.shuffle!.pop
-    @drawn_cards.push new_card
+    @drawn.push new_card
     # new_card = cards.sample
-    # @drawn_cards.push new_card
+    # @drawn.push new_card
     # @cards -= new_card.to_s.split(" ").map{|x| x.to_i}
     new_card
-  end
-
-  def drawn
-    @drawn_cards
   end
 
 end
@@ -66,6 +62,18 @@ class Hand
     current_hand.each do |card|
       total += card.value
     end
-    total
+    if total <= 21
+      return total
+    else
+      total = 0
+      current_hand.each do |card|
+        if card.rank == :A
+          total += 1
+        else
+          total += card.value
+        end
+      end
+      return total
+    end
   end
 end
